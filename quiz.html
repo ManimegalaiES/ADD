@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Quiz</title>
+        <style>
+            .questions{
+                margin-bottom: 20px;
+            }
+            label{
+                margin-bottom: 10px;
+                display: block;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div class="quiz">
+            <div class="questions">
+                <p>1.Which is my favourite kpop boy band?</p>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="BTS">BTS</label>
+                    <label><input type="radio" name="q1" value="EXO">EXO</label>
+                    <label><input type="radio" name="q1" value="SEVENTEEN">SEVENTEEN</label>
+                    <label><input type="radio" name="q1" value="Stray kidz">Stray kidz</label>
+                </div>
+            </div>
+            <div class="questions">
+                <p>2.Who is my bias?</p>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="Joshua">Joshua</label>
+                    <label><input type="radio" name="q2" value="Mingyu">Mingyu</label>
+                    <label><input type="radio" name="q2" value="DK">DK</label>
+                    <label><input type="radio" name="q2" value="Hoshi">Hoshi</label>
+                </div>
+            </div>
+            <button id="submit-btn" onclick="calculatescore()">Submit</button>
+            <div id="result"></div>
+        </div>
+        <script>
+            function calculatescore(){
+            var score=0;
+
+            var q1Answer=document.querySelector('input[name="q1"]:checked');
+            if(q1Answer && q1Answer.value==="SEVENTEEN"){
+                score++;
+            }
+
+            var q2Answer=document.querySelector('input[name="q2"]:checked');
+            if(q2Answer && q2Answer.value==="Joshua"){
+                score++;
+            }
+
+            var result=document.getElementById("result");
+            result.innerHTMl="Your Score:"+score+"/2";
+
+            if(score===2){
+                result.innerHTML='Congratulations!!!';
+            }else{
+                result.innerHTML='Better luck next Time!!!'
+            }
+        }
+        </script>  
+    </body>
+</html>
